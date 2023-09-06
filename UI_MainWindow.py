@@ -56,6 +56,7 @@ class UI_MainWindow(QMainWindow):
         self.spectra_selection = QListWidget()
         self.spectra_selection_layout.addWidget(self.spectra_selection)
 
+        # Output destination selection
         self.output_lbl = QLabel('Choose output destination \nand export data')
         self.output_dest_btn = QPushButton('select folder ...')
         self.output_dest_btn.clicked.connect(self.output_dest_btn_clicked)
@@ -68,6 +69,7 @@ class UI_MainWindow(QMainWindow):
         self.output_btn_layout.addWidget(self.export_btn)
         self.output_layout.addLayout(self.output_btn_layout)
 
+        # Add all layouts to central layout
         self.central_widget_layout.addLayout(self.input_layout)
         self.central_widget_layout.addLayout(self.input_FN_layout)
         self.central_widget_layout.addLayout(self.spectra_lbl_metadata_layout)
@@ -76,15 +78,6 @@ class UI_MainWindow(QMainWindow):
 
         self.central_widget.setLayout(self.central_widget_layout)
         self.setCentralWidget(self.central_widget)
-
-        
-        
-        #lw = QListWidget()
-        #for i in range(5):
-        #    text = f'Item {i}'
-        #    item = QListWidgetItem(text)
-        #    item.setCheckState(Qt.Unchecked)
-        #    lw.addItem(item)
 
     def input_file_btn_clicked(self):    
         dlg = QFileDialog(self)
